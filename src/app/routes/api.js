@@ -6,12 +6,6 @@ const Books=require('../models/books')
 //get a list of book from the db
 
 router.get('/books/:ID',function (req,res,next) {
-    //res.send({type:'GET'});
-    //
-    // Books.find({},function (data) {
-    //     res.render('books/:ID',{books:data})
-    // });
-
 
     Books.find({ID:req.params.ID}).then(function (book) {
         book = book.map(function(book, index){
@@ -21,10 +15,6 @@ router.get('/books/:ID',function (req,res,next) {
         });
         res.send(book);
     }).catch(next);
-
-    // Books.find({ID:{$gte:req.params.ID}}).then(function (book) {
-    //     res.send(book);
-    // }).catch(next)
 
 });
 
@@ -64,7 +54,6 @@ router.delete('/books/:ID',function (req,res,next) {
         console.log(book);
         res.send(book);
     });
-    //res.send({type:'DELETE'});
 });
 
 module.exports=router;

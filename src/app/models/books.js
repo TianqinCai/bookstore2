@@ -1,9 +1,10 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 
+//the ID and available is not used now
 const BookSchema=new Schema({
     name: {
-        type:String,
+        type:String
     },
     price:{
         type:Number
